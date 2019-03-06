@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+      .tarea-terminada {
+        text-decoration: line-through;
+      }
+    </style>
+</head>
+<body ng-app="ListadeTareas">
+    <fieldset>
+    <legend> Lista de Tareas </legend>
+	<div ng-controller="controladorPrincipal">
+
+		<form ng-submit="agregarTareaNueva()">
+			<input ng-model="tareaNueva">
+			<input type="submit" value="Agregar">
+		</form>
+    <hr>
+    <ul>
+      <li ng-repeat="tarea in tareas">
+        <input type="checkbox" id="{{tarea}}" ng-model="tarea.completada">
+        <!-- la sinaxis de un ng-class es similar a la de un objeto en JavaScript: primero va el nombre de la clase dentro de comillas, a continuación ":" y finalmente la condición a evaluar. La clase aplicará cuando la condición sea verdadera.
+
+        Podemos encadenar varias condiciones separadas por comas -->
+        <label for="tarea" ng-class="{'tarea-terminada': tarea.completada}">{{tarea.nombre}}</label>
+      </li>
+    </ul>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+
+	<script>
+		 angular
+		 	.module('ListadeTareas', []);
+
+
+
+		 angular
+		 	.module('ListadeTareas')
+		 		.controller('controladorPrincipal', controladorPrincipal);
+
+ 		 function controladorPrincipal($scope){
+
+ 		 	$scope.tareas = [
+ 		 	  {nombre: "Ir al cine el lunes 4 de marzo", completada: false},
+ 		 	  {nombre: "Hacer tarea con odalys el sabado", completada: false},
+ 		 	  {nombre: "ir a la escuea el jueves", completada: true}
+ 	 	  ]
+
+ 		 	$scope.listadeTareas = function(){
+
+ 		 		// Hacemos un push al array de tareas
+ 		 		// pasando como valor $scope.tareaNueva
+ 		 		$scope.tareas.push({nombre: $scope.tareaNueva, completada: false});
+
+ 		 		//Borramos el texto que habíamos puesto en el < input >
+ 		 		$scope.tareaNueva = '';
+ 		 	}
+ 		 }
+
+	</script>
+        </fieldset>
+    <fieldset>
+        <legend> Conversor de numeros</legend>
+     <script type="text/javascript" src="https://pfont.eu/www4/nx.js" ></script>
+   
+    <div style="text-align: center; width: 100%;">
+<iframe frameborder="0" height="330px" scrolling:="none" src="https://pfont.eu/gadgets/conversorr.html" width="250px"></iframe>
+</div>
+    </fieldset>
+    
+   <form>
+ <fieldset>
+     
+     <legend> Captura de Datos </legend>
+     
+<input type="radio" name="gender" value="Hombre" checked onclick="cambioformulario()">  Padre <br>
+<input type="radio" name="gender" value="Mujer" onclick="cambioformulario()"> Madre <br>
+<input type="radio" name="gender" value="Hombre/Mujer" onclick="cambiaformulario()"> Hijo/a <br> <br>
+     </fieldset>
+    </form>
+    </body>
+</html>

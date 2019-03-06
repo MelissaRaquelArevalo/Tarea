@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body ng-app="lista de Tareas">>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js">
+   angular
+        .module('lista de TareaS', []);
+    </script>
+    
+    
+
+</body>
+</html>
